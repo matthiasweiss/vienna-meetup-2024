@@ -15,7 +15,7 @@ export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
         <AppHeaderLayout>
             <Head title="Dashboard" />
 
-            <div className="mx-auto grid max-w-7xl gap-8 p-8 md:grid-cols-2">
+            <div className="mx-auto grid w-full gap-8 p-4 md:grid-cols-2 md:py-8">
                 <Card className="px-6 md:col-span-2">
                     <CreatePostForm />
                     {/**<CreatePostFormNoPrecognition />*/}

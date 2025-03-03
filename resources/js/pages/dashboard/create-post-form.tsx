@@ -1,6 +1,7 @@
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useForm } from 'laravel-precognition-react-inertia';
 
 export function CreatePostForm() {
@@ -24,10 +25,8 @@ export function CreatePostForm() {
             }}
             className="space-y-4"
         >
-            <div className="flex flex-col gap-2">
-                <label htmlFor="content" className="mb-2 font-semibold">
-                    New Post
-                </label>
+            <div className="grid gap-2">
+                <Label htmlFor="content">New Post</Label>
 
                 <Input
                     id="content"
@@ -37,7 +36,6 @@ export function CreatePostForm() {
                         form.forgetError('content');
                     }}
                     onBlur={() => {
-                        console.log('BLUR');
                         form.validate('content');
                     }}
                     required
@@ -46,7 +44,7 @@ export function CreatePostForm() {
                     placeholder="Your post content goes here"
                 />
 
-                <InputError className="mt-2" message={form.errors.content} />
+                <InputError message={form.errors.content} />
             </div>
 
             <Button type="submit">Create post</Button>
