@@ -7,7 +7,7 @@ type PostProps = {
 export function Post({ post: { creator, createdAt, content } }: PostProps) {
     return (
         <div>
-            <div className="dark: flex justify-between gap-8 text-neutral-400 dark:text-neutral-500">
+            <div className="flex justify-between gap-8 text-neutral-400 dark:text-neutral-500">
                 <div>{creator.email}</div>
                 <div>{formatRelativeDate(createdAt)}</div>
             </div>

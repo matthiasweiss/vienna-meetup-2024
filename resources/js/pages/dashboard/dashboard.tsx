@@ -1,8 +1,8 @@
 import { Card } from '@/components/ui/card';
-import { Spinner } from '@/components/ui/spinner';
 import AppHeaderLayout from '@/layouts/app/app-header-layout';
 import { SharedData } from '@/types';
 import { Deferred, Head, usePoll } from '@inertiajs/react';
+import { CardSkeleton } from './card-skeleton';
 import { CreatePostForm } from './create-post-form';
 import { Post } from './post';
 
@@ -24,14 +24,18 @@ export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
                 <Card className="px-6">
                     <h3 className="font-semibold">Your latest posts</h3>
 
-                    <div className="contents">{myLatestPosts?.map((post) => <Post key={post.id} post={post} />)}</div>
+                    <div className="contents">
+                        {myLatestPosts?.map((post) => <Post key={post.id} post={post} />)}
+                    </div>
                 </Card>
 
                 <Card className="px-6">
                     <h3 className="font-semibold">Feed</h3>
 
-                    <Deferred data="feed" fallback={<Spinner />}>
-                        <div className="contents">{feed?.posts.map((post) => <Post key={post.id} post={post} />)}</div>
+                    <Deferred data="feed" fallback={<CardSkeleton />}>
+                        <div className="contents">
+                            {feed?.posts.map((post) => <Post key={post.id} post={post} />)}
+                        </div>
                     </Deferred>
                 </Card>
             </div>
