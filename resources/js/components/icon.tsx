@@ -1,8 +1,9 @@
 import { cn } from '@/lib/utils';
+import { type LucideProps } from 'lucide-react';
 import { type ComponentType } from 'react';
 
-interface IconProps extends Omit {
-    iconNode: ComponentType;
+interface IconProps extends Omit<LucideProps, 'ref'> {
+    iconNode: ComponentType<LucideProps>;
 }
 
 export function Icon({ iconNode: IconComponent, className, ...props }: IconProps) {

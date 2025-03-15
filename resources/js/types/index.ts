@@ -1,32 +1,31 @@
-import { LucideIcon } from 'lucide-react';
-export { App } from '../types/generated.d.ts';
+import * as lucideReact from 'lucide-react';
 
-export interface Auth {
+export type Auth = {
     user: User;
-}
+};
 
-export interface BreadcrumbItem {
+export type BreadcrumbItem = {
     title: string;
     href: string;
-}
+};
 
-export interface NavGroup {
+export type NavGroup = {
     title: string;
     items: NavItem[];
-}
+};
 
-export interface NavItem {
+export type NavItem = {
     title: string;
-    url: string;
-    icon?: LucideIcon | null;
+    href: string;
+    icon?: lucideReact.LucideIcon | null;
     isActive?: boolean;
-}
+};
 
-export interface SharedData {
+export type SharedData = {
     auth: Auth;
-}
+};
 
-export interface User {
+export type User = {
     id: number;
     name: string;
     email: string;
@@ -35,4 +34,4 @@ export interface User {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
-}
+};
