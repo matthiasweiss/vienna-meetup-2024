@@ -5,7 +5,7 @@ import { Head } from '@inertiajs/react';
 
 type DemoProps = SharedData & {};
 
-export default function Demo({ auth }: DemoProps) {
+export default function Demo(props: DemoProps) {
     return (
         <AppHeaderLayout>
             <Head title="Demo" />
@@ -20,7 +20,12 @@ export default function Demo({ auth }: DemoProps) {
                 </Card>
 
                 <Card>
-                    <CardContent className="grid gap-6">TODO: FEED</CardContent>
+                    <CardContent className="grid gap-6">
+                        TODO: FEED
+                        <pre className="hidden whitespace-pre-line">
+                            {JSON.stringify(props, null, 2)}
+                        </pre>
+                    </CardContent>
                 </Card>
             </div>
         </AppHeaderLayout>
