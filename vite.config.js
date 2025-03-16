@@ -21,7 +21,7 @@ export default defineConfig({
 
                 fs.watch(path, { recursive: true }, (event, filename) => {
                     console.log(`File changed: ${filename}, running artisan command...`);
-                    exec('php artisan typescript:transform --format', (err, stdout, stderr) => {
+                    exec('composer run transform-types', (err, stdout, stderr) => {
                         if (err) {
                             console.error(`Error running artisan command: ${stderr}`);
                         } else {
