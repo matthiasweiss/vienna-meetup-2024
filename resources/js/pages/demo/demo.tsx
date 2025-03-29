@@ -22,9 +22,7 @@ export default function Demo(props: DemoProps) {
                 <Card>
                     <CardContent className="grid gap-6">
                         TODO: FEED
-                        <pre className="hidden whitespace-pre-line">
-                            {JSON.stringify(props, null, 2)}
-                        </pre>
+                        <pre className="whitespace-pre-line">{JSON.stringify(props, null, 2)}</pre>
                     </CardContent>
                 </Card>
             </div>

@@ -16,6 +16,8 @@ declare namespace App.Data {
         content: string;
     };
     export type UserData = {
+        id: number;
         email: string;
+        name: string;
     };
 }

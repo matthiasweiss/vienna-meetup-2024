@@ -9,6 +9,8 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 class UserData extends Data
 {
     public function __construct(
-        public string $email
+        public int $id,
+        public string $email,
+        public string $name,
     ) {}
 }
