@@ -6,6 +6,6 @@ class DemoController extends Controller
 {
     public function __invoke()
     {
-        return view('demo/demo');
+        return inertia('demo/demo');
     }
 }
