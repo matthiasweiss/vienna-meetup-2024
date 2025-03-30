@@ -6,7 +6,7 @@ import { SharedData } from '@/types';
 import { formatRelativeDate } from '@/utils/format-relative-date';
 import { Deferred, Head, useForm } from '@inertiajs/react';
 import { CardSkeleton } from '../dashboard/card-skeleton';
-import { Feed } from './feed';
+import { Feed } from '../demo/feed';
 
 type PreparationProps = SharedData & { feed?: Feed };
 
@@ -18,7 +18,7 @@ export default function Preparation(props: PreparationProps) {
             <Head title="Demo" />
 
             <div className="mt-8 w-full px-4">
-                <h1 className="text-2xl">Preparation (TS)</h1>
+                <h1 className="text-2xl">Preparation</h1>
             </div>
 
             <div className="mx-auto grid w-full gap-8 p-4">
@@ -26,7 +26,7 @@ export default function Preparation(props: PreparationProps) {
                     <CardContent>
                         <form
                             onSubmit={() => {
-                                form.post(route('posts.store'));
+                                form.post(route('posts.store'), { preserveScroll: true });
                             }}
                             className="space-y-4"
                         >
