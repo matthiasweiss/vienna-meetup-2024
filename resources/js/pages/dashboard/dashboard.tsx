@@ -9,7 +9,7 @@ import { Post } from './post';
 type DashboardProps = SharedData & App.Data.DashboardData;
 
 export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
-    usePoll(5000, { except: ['feed'] });
+    usePoll(2 * 1000, { except: ['feed'] });
 
     return (
         <AppHeaderLayout>
@@ -27,7 +27,7 @@ export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
                     </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="h-fit">
                     <CardContent className="grid gap-6">
                         <h3 className="font-semibold">Your latest posts</h3>
 
@@ -37,7 +37,7 @@ export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
                     </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="h-fit">
                     <CardContent className="grid gap-6">
                         <h3 className="font-semibold">Feed</h3>
 

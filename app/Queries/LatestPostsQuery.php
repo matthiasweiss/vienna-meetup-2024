@@ -3,18 +3,18 @@
 namespace App\Queries;
 
 use App\Data\PostData;
+use Illuminate\Support\Facades\Auth;
 
 class LatestPostsQuery
 {
     /** @return PostData[] */
     public function get(): array
     {
-        /** @var User $user */
-        $user = auth()->user();
-        $myLatestPosts = $user->posts()
+        $myLatestPosts = Auth::user()
+            ->posts()
             ->with('creator')
             ->latest()
-            ->limit(3)
+            ->limit(5)
             ->get();
 
         return PostData::collect($myLatestPosts)->all();

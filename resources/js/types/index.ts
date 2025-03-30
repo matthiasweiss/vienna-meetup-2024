@@ -23,6 +23,7 @@ export type NavItem = {
 
 export type SharedData = {
     auth: Auth;
+    errors: Record<string, string>;
 };
 
 export type User = {

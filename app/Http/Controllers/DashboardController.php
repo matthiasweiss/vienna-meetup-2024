@@ -17,6 +17,6 @@ class DashboardController extends Controller
             feed: Inertia::defer(fn () => $feedQuery->get()),
         );
 
-        return inertia('dashboard/dashboard', $data);
+        return Inertia::render('dashboard/dashboard', $data);
     }
 }
