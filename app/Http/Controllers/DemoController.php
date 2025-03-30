@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Response;
-
 class DemoController extends Controller
 {
-    public function __invoke(): Response
+    public function __invoke()
     {
-        return inertia('demo/demo');
+        return view('demo/demo');
     }
 }
