@@ -27,7 +27,7 @@ class CreatePostCommand extends Command
     public function handle()
     {
         $content = $this->argument('content');
-        User::findOrFail(1)->posts()->create([
+        User::findOrFail(2)->posts()->create([
             'content' => $content,
         ]);
 

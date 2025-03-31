@@ -26,7 +26,7 @@ export default function Preparation(props: PreparationProps) {
                     <CardContent>
                         <form
                             onSubmit={() => {
-                                form.post(route('posts.store'), { preserveScroll: true });
+                                form.post(route('posts.store'));
                             }}
                             className="space-y-4"
                         >

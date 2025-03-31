@@ -16,14 +16,14 @@ export default function Demo(props: DemoProps) {
 
             <div className="mx-auto grid w-full gap-8 p-4">
                 <Card>
-                    <CardContent>TODO: FORM</CardContent>
+                    <CardContent>
+                        TODO: FORM
+                        <pre className="whitespace-pre-line">{JSON.stringify(props, null, 2)}</pre>
+                    </CardContent>
                 </Card>
 
                 <Card>
-                    <CardContent className="grid gap-6">
-                        TODO: FEED
-                        <pre className="whitespace-pre-line">{JSON.stringify(props, null, 2)}</pre>
-                    </CardContent>
+                    <CardContent className="grid gap-6">TODO: FEED</CardContent>
                 </Card>
             </div>
         </AppHeaderLayout>

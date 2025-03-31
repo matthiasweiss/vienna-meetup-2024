@@ -11,7 +11,7 @@ class FeedQuery
 {
     public function get(): FeedData
     {
-        /* sleep(seconds: 2); */
+        // sleep(seconds: 2);
 
         $user = Auth::user();
         $followingIds = $user->following->pluck('id');
