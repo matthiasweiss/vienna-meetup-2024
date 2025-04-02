@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function __invoke(LatestPostsQuery $latestPostsQuery, FeedQuery $feedQuery): Response
     {
         $data = new DashboardData(
-            myLatestPosts: $latestPostsQuery->get(),
+            latestPosts: $latestPostsQuery->get(),
             feed: Inertia::defer(fn () => $feedQuery->get()),
         );
 

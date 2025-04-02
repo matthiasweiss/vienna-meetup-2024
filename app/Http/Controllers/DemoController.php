@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Queries\FeedQuery;
+
 class DemoController extends Controller
 {
-    public function __invoke()
+    public function __invoke(FeedQuery $feedQuery)
     {
-        return inertia('demo/demo');
+        $feed = $feedQuery->get();
+
+        return inertia('demo/demo', [
+            'feed' => $feed,
+        ]);
     }
 }

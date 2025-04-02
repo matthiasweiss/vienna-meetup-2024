@@ -11,7 +11,7 @@ class DashboardData extends Data
 {
     public function __construct(
         /** @var array<PostData> */
-        public array $myLatestPosts,
+        public array $latestPosts,
         public DeferProp|FeedData $feed,
     ) {}
 }

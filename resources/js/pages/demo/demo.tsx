@@ -1,11 +1,19 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import AppHeaderLayout from '@/layouts/app/app-header-layout';
 import { SharedData } from '@/types';
-import { Head } from '@inertiajs/react';
+import { Deferred, Head, useForm } from '@inertiajs/react';
+import { CardSkeleton } from '../dashboard/card-skeleton';
+import { Feed } from './feed';
 
-type DemoProps = SharedData & {};
+type DemoProps = SharedData & { feed?: Feed };
 
 export default function Demo(props: DemoProps) {
+    const form = useForm({
+        content: '',
+    });
+
     return (
         <AppHeaderLayout>
             <Head title="Demo" />
@@ -17,13 +25,50 @@ export default function Demo(props: DemoProps) {
             <div className="mx-auto grid w-full gap-8 p-4">
                 <Card>
                     <CardContent>
-                        TODO: FORM
-                        <pre className="whitespace-pre-line">{JSON.stringify(props, null, 2)}</pre>
+                        <form
+                            onSubmit={() => {
+                                form.post(route('posts.store'));
+                            }}
+                            className="space-y-4"
+                        >
+                            <label htmlFor="content">Content</label>
+                            <Input
+                                id="content"
+                                onChange={(e) => {
+                                    form.setData('content', e.target.value);
+                                }}
+                            />
+
+                            {!!props.errors.content && (
+                                <p className="text-destructive">{props.errors.content}</p>
+                            )}
+
+                            <Button type="submit" disabled={form.processing}>
+                                Submit
+                            </Button>
+                        </form>
                     </CardContent>
                 </Card>
 
                 <Card>
-                    <CardContent className="grid gap-6">TODO: FEED</CardContent>
+                    <CardContent className="grid gap-6">
+                        <h2>Feed</h2>
+                        <Deferred data="feed" fallback={<CardSkeleton />}>
+                            <div className="space-y-4">
+                                {props.feed?.posts.map((post) => {
+                                    return (
+                                        <div>
+                                            <div className="text-muted-foreground flex justify-between">
+                                                <div>{post.creator.name}</div>
+                                                <div>{post.createdAt}</div>
+                                            </div>
+                                            <div>{post.content}</div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </Deferred>
+                    </CardContent>
                 </Card>
             </div>
         </AppHeaderLayout>
