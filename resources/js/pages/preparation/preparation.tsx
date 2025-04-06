@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import AppHeaderLayout from '@/layouts/app/app-header-layout';
+import posts from '@/routes/posts';
 import { SharedData } from '@/types';
 import { formatRelativeDate } from '@/utils/format-relative-date';
 import { Deferred, Head, useForm } from '@inertiajs/react';
@@ -26,7 +27,7 @@ export default function Preparation(props: PreparationProps) {
                     <CardContent>
                         <form
                             onSubmit={() => {
-                                form.post(route('posts.store'));
+                                form.submit(posts.store());
                             }}
                             className="space-y-4"
                         >

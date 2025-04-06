@@ -1,6 +1,6 @@
 declare namespace App.Data {
     export type DashboardData = {
-        myLatestPosts: Array<App.Data.PostData>;
+        latestPosts: Array<App.Data.PostData>;
         feed: null | App.Data.FeedData;
     };
     export type FeedData = {
