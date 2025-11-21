@@ -1,14 +1,15 @@
 import { Card, CardContent } from '@/components/ui/card';
 import AppHeaderLayout from '@/layouts/app/app-header-layout';
 import { SharedData } from '@/types';
+import { DashboardData } from '@/types/generated';
 import { Deferred, Head, usePoll } from '@inertiajs/react';
 import { CardSkeleton } from './card-skeleton';
 import { CreatePostForm } from './create-post-form';
 import { Post } from './post';
 
-type DashboardProps = SharedData & App.Data.DashboardData;
+type DashboardProps = SharedData & DashboardData;
 
-export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
+export default function Dashboard({ feed, latestPosts }: DashboardProps) {
     usePoll(2 * 1000, { except: ['feed'] });
 
     return (
@@ -32,7 +33,7 @@ export default function Dashboard({ feed, myLatestPosts }: DashboardProps) {
                         <h3 className="font-semibold">Your latest posts</h3>
 
                         <div className="contents">
-                            {myLatestPosts?.map((post) => <Post key={post.id} post={post} />)}
+                            {latestPosts?.map((post) => <Post key={post.id} post={post} />)}
                         </div>
                     </CardContent>
                 </Card>

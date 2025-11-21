@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../../wayfinder'
 
 /**
  * @see \App\Http\Controllers\PostController::store
- * @see app/Http/Controllers/PostController.php:11
+ * @see app/Http/Controllers/PostController.php:10
  * @route /posts
  */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ store.definition = {
 
 /**
  * @see \App\Http\Controllers\PostController::store
- * @see app/Http/Controllers/PostController.php:11
+ * @see app/Http/Controllers/PostController.php:10
  * @route /posts
  */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -29,7 +29,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
  * @see \App\Http\Controllers\PostController::store
- * @see app/Http/Controllers/PostController.php:11
+ * @see app/Http/Controllers/PostController.php:10
  * @route /posts
  */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
